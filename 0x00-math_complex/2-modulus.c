@@ -1,3 +1,9 @@
+/*
+* 2-modulus.c - Modulus of complex
+* Author: Zandile Tshabalala
+* Date: March 15, 2022
+*/
+
 #include "holberton.h"
 #include <math.h>
 
