@@ -1,22 +1,12 @@
-/*
-* 2-modulus.c - Modulus of complex
-* Author: Zandile Tshabalala
-* Date: March 15, 2022
-*/
-
 #include "holberton.h"
-#include <math.h>
-
 /**
-* modulus - return the modulus
-* @c: structure complex
-* Return: c
-*/
-
+ * modulus - Function that returns the modul of the complex num
+ *
+ * @c: Parameter
+ *
+ * Return: returns the modul of the complex num
+ */
 double modulus(complex c)
 {
-	double mod;
-
-	mod = sqrt(pow(c.re, 2) + pow(c.im, 2));
-	return (mod);
+        return(sqrt(pow(c.re, 2) + pow(c.im, 2)));
 }
