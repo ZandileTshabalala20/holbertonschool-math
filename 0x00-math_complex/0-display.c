@@ -1,32 +1,46 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
-* display_complex_number - Display complex number
-* @c: Complex number
-*/
-
+ * display_complex_number - function to show an imaginary number
+ *
+ * @c: Parameter
+ */
 void display_complex_number(complex c)
 {
-	if (c.re == 0)
+	char x;
+
+	x = (c.im < 0) ? '-' : '+';
+
+	if (c.im == 0)
 	{
-		if (c.im < 0)
-			printf("- %.9gi\n", c.im * (-1));
-		else if (c.im == 0)
-			printf("0\n");
-		else
-			printf("%.9gi\n", c.im);
+		printf("%.9g\n", c.re);
 	}
+	/**else if (c.re == 0)
+	{
+		if (c.im == 1)
+		{
+			printf("i\n");
+			return;
+		}
+		else if (c.im == -1)
+		{
+			printf("-i\n");
+			return;
+		}
+		printf("%.9gi\n", c.im);
+	}*/
 	else
 	{
-		if (c.im < -1)
-			printf("%.9g - %.9gi\n", c.re, c.im * (-1));
+		c.im = (c.im < 0) ? -(c.im) : c.im;
+		if (c.im == 1)
+		{
+			printf("%.9g %c i\n", c.re, x);
+			return;
+		}
 		else if (c.im == -1)
-			printf("%.9g - i\n", c.re);
-		else if (c.im == 0)
-			printf("%.9g\n", c.re);
-		else if (c.im == 1)
-			printf("%.9g + i\n", c.re);
-		else
-			printf("%.9g + %.9gi\n", c.re, c.im);
+		{
+			printf("%.9g %c -i\n", c.re, x);
+			return;
+		}
+		printf("%.9g %c %.9gi\n", c.re, x, c.im);
 	}
 }
