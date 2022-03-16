@@ -1,15 +1,17 @@
 #include "holberton.h"
-#include <math.h>
-
 /**
-* argument - return the argument
-* @c: structure complex
-* Return: double a
-*/
-
+ * argument - function that returns the argument of a given complex number
+ *
+ * @c: Parameter structure
+ *
+ * Return: returns the argument of a given complex number
+ */
 double argument(complex c)
 {
-double a;
-a = atan(c.im / c.re);
-return (a);
+        double x, ret;
+
+        x = c.im / c.re;
+        ret = atan (x);
+
+        return (ret);
 }
