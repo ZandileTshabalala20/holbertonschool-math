@@ -1,157 +1,80 @@
-Tasks
+# 0x01. Math - Sequence
+## Learning Objectives
 
-0. The Heron sequence
-#advanced
+    Sequences
+    Arithmetic and Geometric sequences. 3. Recurrent sequences
+    Induction
+    Limits
+    Classic sequences
 
-The Heron sequence is defined by:  with .
+### Requirements
 
-Write a function that returns the Heron sequence until having convergence with an error less or equal to .
+    How to use structures
+    How to use linked lists
 
-Prototype: t_cell *heron(double p, double x0);
-You must use linked lists.
+## Tasks
+### 0. The Heron sequence
 
+The Heron sequence is defined by: with .
 
-julien@ubuntu:~/0x01-math_sequence$ cat 0-main.c
-#include <stdio.h>
-#include "heron.h"
+Write a function that return the Heron sequence until having convergence with an error less or equal to .
 
-/**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
-void print_list(t_cell *head)
-{
-    if (head == NULL)
-       return;
-    print_list(head->next);
-    printf("%lf ",head->elt);
-}
+    Prototype: t_cell *heron(double p, double x0);
+    You must use linked lists.
 
-int main()
-{
-    double p, u0;
-    t_cell *head;
+#### File: 0-heron.c
 
-    u0 = 1;
-    p = 35;
-    printf("The Heron sequence until having convergence with an error equal to 10^(-7) is:\n");
-    head = heron(p, u0);
-    print_list(head); 
-    printf("\n");
-    return (0);
-}
+### 1. The Fibonacci sequence
 
-julien@ubuntu:~/0x01-math_sequence$ gcc -Wall -pedantic -Werror -Wextra -std=c89 0-heron.c 0-main.c -o ./0-heron
-julien@ubuntu:~/0x01-math_sequence$ ./0-heron
-The Heron sequence until having convergence with an error equal to 10^(-7) is:
-1.000000 18.000000 9.972222 6.740986 5.966552 5.916293 5.916080
-Repo:
-
-GitHub repository: holbertonschool-math
-Directory: 0x01-math_sequence
-File: 0-heron.c
-  
-1. The Fibonacci sequence
-
-#advanced
-The Fibonacci sequence is defined by:  is valid for  with .
+The Fibonacci sequence is defined by: is valid for with .
 
 Code the Fibonacci sequence until having a geometric behavior. How can we deduce the gold number ?
 
-Prototypes: t_cell *Fibonnaci(); double gold_number(t_cell *head);
-You must use linked lists.
-You can use the library <math.h> in your code
+    Prototypes: t_cell *Fibonnaci(); double gold_number(t_cell *head);
+    You must use linked lists.
+    You can use the library <math.h> in your code
 
+#### File: 1-fibonacci.c
+![Fibonacci](https://media.geeksforgeeks.org/wp-content/cdn-uploads/fibonacci-sequence.png)
 
-julien@ubuntu:~/0x01-math_sequence$ cat 1-main.c 
-#include <stdio.h>
-#include "fibonacci.h"
+### 2. Mandelbrot’s Sets
 
-void print_list(t_cell *head)
-{
-    if (head == NULL)
-        return;
-    print_list(head->next);
-    printf("%d ", head->elt);
-}
+The Mandelbrot’s set is the set of complex numbers c for which the function does not diverge when iterated from . If we assume that the sequence diverges if it becomes greater than 2.
+Code the Mandelbrot’s set in a PGM file with a recurrent sequence:
 
-int main()
-{
-    t_cell *head;
+Compile with: gcc -Wall -Werror -Wextra -std=c89 -pedantic 2-mandelbrot.c 2-main.c -o mandelbrot
 
-    head = Fibonnaci();
-    print_list(head);
-    printf("\n");
-    if (head)
-        printf("The gold number is: %lf\n", gold_number(head));
-    return (0);
-}
+Run ./mandlebrot
 
-julien@ubuntu:~/0x01-math_sequence$ gcc -std=c89 -Wall -pedantic -Werror -Wextra -lm 1-main.c 1-fibonacci.c -o 1-fibonacci
-julien@ubuntu:~/0x01-math_sequence$ ./1-fibonacci
-1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765
-The gold number is: 1.618034
-julien@ubuntu:~/0x01-math_sequence$
-Repo:
+This command will create a file named mandelbrot.pgm in the current directory
 
-GitHub repository: holbertonschool-math
-Directory: 0x01-math_sequence
-File: 1-fibonacci.c
-  
-2. Mandelbrot’s Sets
+#### File: mandelbrot.c
 
-#advanced
-The Mandelbrot’s set is the set of complex numbers c for which the function  does not diverge when iterated from .
+![Mandelbrot's set](https://www.researchgate.net/profile/John-Hubbard-6/publication/228540477/figure/fig1/AS:669410264088623@1536611252979/The-Mandelbrot-set-M-The-two-main-conjectures-are-the-following-MLC-The-set-M-is.png)
 
-If we assume that the sequence  diverges if it becomes greater then 2. Code the Mandelbrot’s set in a PGM file mandelbrot.pgm with a recurrent sequence:  where the width = 1000 pixels, the hight = 1000 pixels and the maximum of iterations = 255.
+### 3. Julia’s Sets
 
+Code the Julia’s Set in a PGM file with a recurrent sequence
 
+Compile with: gcc -Wall -Werror -Wextra -std=c89 -pedantic 3-julia.c 3-main.c -o julia
 
-Note:
+Run ./julia
 
-In these projects, you should use the functions modulus, addition and multiplication from the previous math project Complex. Add a file complex.c contains this functions. Then include the file holberton.h contains the struct complex in 2-mandelbrot.c file. (Don’t use include <complex.h> library).
-We want the center of the image to be mapped to (0,0), so given a pixel we subtract half of the image height from the vertical coordinate, and half of the width from the horizontal coordinate. Next, the scale: we know that the Mandelbrot set lies within a circle of radius 2, so the entire width of the image should have length 4.
-So the equations of the complex number c using the variables x and y will be:
+	With the desired options
+	width: canva width
+	height: canva height
+	complex: real imaginary
+	radius: distance factor
+	n: iterations
 
-c.re = (x - width /2) * 4.0 /  width
-c.im = (y - length /2 ) * 4.0 /  width
-Repo:
+ie ./julia 200 200 -0.9 0.02 2 50
 
-GitHub repository: holbertonschool-math
-Directory: 0x01-math_sequence
-File: 2-mandelbrot.c, mandelbrot.pgm, complex.c
-  
-3. Julia’s SetsChecks
+This command will create a file named julia.pgm in the current directory
 
-#advanced
-Code the Julia’s Set in a PGM file with a recurrent sequence:  and output the results into 6 PGM files for each of the following c complex numbers:
+#### File: julia.c
 
-c= -0.625 + 0.4i refers to the file julia1.pgm
-c= 0.285 + 0i refers to the file julia2.pgm
-c= 0.285 + 0.01i refers to the file julia3.pgm
-c= -0.7269 + 0.1889i refers to the file julia4.pgm
-c= -0.835 + 0.2321i refers to the file julia5.pgm
-c= -0.70176 - 0.3842i refers to the file julia6.pgm
-     
+![Julia](https://mathpng.com/wp-content/uploads/2021/07/gren_13.png)
 
-The prototype of the function which will be called 6 times in the main of the file julia.c:
-
-void JuliaSet(FILE *name, char name1[20], complex c, int xmax, int ymax) where the xmax = 1000 pixels and the ymax = 1000 pixels.
-
-Note:
-
-In these projects, you should use the functions modulus, addition and multiplication from the previous math project Complex. Add a file complex.c contains this functions. Then include the file holberton.h contains the struct complex in 3-julia.c file. (Don’t use include <complex.h> library).
-
-We want the center of the image to be mapped to (0,0), the Julia set is the line segment between −2 and 2.
-
-So the equations of the complex number z using the variables x and y will be:
-
-z.re = -2 + x * 0.004
-z.im = -2 + y * 0.004
-Repo:
-
-GitHub repository: holbertonschool-math
-Directory: 0x01-math_sequence
-File: 3-julia.c, julia1.pgm, julia2.pgm, julia3.pgm, julia4.pgm, julia5.pgm, julia6.pgm, complex.c
+#### Why I'm here
+Don't know...
 

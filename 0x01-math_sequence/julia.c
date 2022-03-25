@@ -1,3 +1,9 @@
+/*
+* julia.c - Prints julia set into PGM file
+* Author: Rodrigo Zárate Algecira
+* Date: August 16, 2021
+*/
+
 #include "julia.h"
 
 /**
