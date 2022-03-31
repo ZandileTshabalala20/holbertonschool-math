@@ -75,6 +75,3 @@ This command will create a file named julia.pgm in the current directory
 
 ![Julia](https://mathpng.com/wp-content/uploads/2021/07/gren_13.png)
 
-#### Why I'm here
-Don't know...
-
