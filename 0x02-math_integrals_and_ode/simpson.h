@@ -1,3 +1,6 @@
-#include "math.h"
-#include "rectangle.h"
+#ifndef SIMPSON_H
+#define SIMPSON_H
 
+double simpson(double a, double b, int steps );
+
+#endif /* SIMPSON_H */
