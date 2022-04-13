@@ -1,7 +1,7 @@
 /*
 * 0 - ODE method
-* Author: Rodrigo Zárate Algecira
-* Date: August 21, 2021
+* Author: Zandile Tshabalala
+* Date: April 13, 2022
 */
 
 #include <stdio.h>
